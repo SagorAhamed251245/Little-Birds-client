@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import Button from "../../../component/Button/Button";
 import Container from "../../../component/Container/Container";
 
 const PopularClassCard = ({ item }) => {
-    const { _id, className, available_seats, classImage, instructor, number_of_students, price } = item;
+    const { _id, className, available_seats, classImage,  number_of_students, price } = item;
     return (
         <Container>
             <div className="card card-compact w-96 bg-base-100 shadow-xl">
@@ -13,7 +14,7 @@ const PopularClassCard = ({ item }) => {
                     <p>Price: ${price}</p>
                     <p>Available Seats: {available_seats}</p>
                     <div className="card-actions justify-end">
-                        <Button title={"Enroll Now"}></Button>
+                        <Link to={`class/${_id}`} className="w-full"><Button title={"Enroll Now"}></Button></Link>
                     </div>
                 </div>
             </div>

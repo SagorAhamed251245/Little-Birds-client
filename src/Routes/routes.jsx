@@ -13,6 +13,7 @@ import TeacherDashboard from "../pages/Dashboard/TeacherDashboard/TeacherDashboa
 import StudentDashboard from "../pages/Dashboard/StudentDashboard/StudentDashboard";
 import Instructors from "../pages/Instructors/Instructors";
 import Classes from "../pages/Classes/Classes";
+import ClassDetails from "../pages/ClassDetails/ClassDetails";
 export const router = createBrowserRouter([
     {
       path: "/",
@@ -29,6 +30,12 @@ export const router = createBrowserRouter([
         {
             path: 'classes',
             element:<Classes></Classes>
+        },
+        {
+            path: 'class/:id',
+            element: <ClassDetails></ClassDetails>,
+            loader: ({params}) => fetch(`${import.meta.env.VITE_apiUrl}/class/${params.id}`)
+            
         }
       ]
     },
