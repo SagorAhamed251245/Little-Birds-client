@@ -1,11 +1,14 @@
-import { useContext } from "react";
-import { AuthContext } from "../../provider/AuthProvider";
+// import { useContext } from "react";
+// import { AuthContext } from "../../provider/AuthProvider";
+import { Banner } from "./Banner/Banner";
 
 const Home = () => {
-    const {user} = useContext(AuthContext)
+    // const {user} = useContext(AuthContext)
     return (
         <div>
-            <h1>This is Home {user?.email}</h1>
+            <div className="flex justify-center">
+            <Banner></Banner>
+            </div>
         </div>
     );
 };

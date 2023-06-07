@@ -12,7 +12,9 @@ import AuthProvider from './provider/AuthProvider';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+      <section className='font-Dosis'>
+        <RouterProvider router={router} />
+      </section>
     </AuthProvider>
   </React.StrictMode>,
 )
