@@ -67,7 +67,7 @@ const Register = () => {
                         <Button title={'Register to your account'}></Button>
 
                         <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
-                            Have an account? <Link to='/login' className="text-pink-700 hover:underline dark:text-pink-500">Login</Link>
+                            Have an account? <Link to='/login' className=" text-pink-5ho00 hover:underline dark:text-pink-500">Login</Link>
                         </div>
 
                     </form>

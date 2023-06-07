@@ -49,7 +49,7 @@ const Login = () => {
                         <Button title={'Login'}></Button>
 
                         <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
-                        Create a new account <Link to='/register' className="text-pink-700 hover:underline dark:text-pink-500">register</Link>
+                        Create a new account <Link to='/register' className="text-pink-500 hover:underline dark:text-pink-500">register</Link>
                         </div>
 
                     </form>

@@ -10,7 +10,7 @@ export const Banner = () => {
 
     return (
         <>
-            <div className="carousel w-full h-[500px]">
+            <div className="carousel w-full h-[500px] ">
 
                 <Carousel
                     photo={banner1}
