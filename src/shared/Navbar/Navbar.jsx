@@ -12,7 +12,8 @@ const Navbar = () => {
         <li><Link to={'dashboard'}>dashboard</Link></li>
         <li><Link to={'login'}>Login</Link></li>
         <li><Link to={'register'}>Register</Link></li>
-        <li><Link to={'register'}>Register</Link></li>
+        
+        
 
 
     </>
@@ -29,6 +30,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                <p>{user?.displayName}</p>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -40,8 +42,9 @@ const Navbar = () => {
                     <Button title={'Log Out'} ></Button>
                 </div>
                 <div className="avatar">
-                    <div className="w-10 mask mask-squircle">
+                    <div className="w-10 mask mask-squircle text-black">
                         <img src={user?.photoURL} />
+                       
                     </div>
                 </div>
 

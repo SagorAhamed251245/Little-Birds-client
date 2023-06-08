@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import Button from "../../component/Button/Button";
+import { setNewUser } from "../../api/setUserAuth";
 
 const Login = () => {
     const { register, handleSubmit } = useForm();
@@ -17,6 +18,7 @@ const Login = () => {
         singInUser(email, password)
         .then(result => {
             console.log( result.user );
+            setNewUser(result.user)
             navigate('/')
         })
         .catch(error => {

@@ -8,12 +8,15 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Registe";
 import Home from "../pages/Home/Home";
 import DashboardLayout from "../layout/Main/DashboardLayout/DashboardLayout";
-import AdminDashboard from "../pages/Dashboard/AdminDashboard/AdminDashboard";
-import TeacherDashboard from "../pages/Dashboard/TeacherDashboard/TeacherDashboard";
-import StudentDashboard from "../pages/Dashboard/StudentDashboard/StudentDashboard";
+
 import Instructors from "../pages/Instructors/Instructors";
 import Classes from "../pages/Classes/Classes";
 import ClassDetails from "../pages/ClassDetails/ClassDetails";
+
+import EnrolledClasses from "../pages/Dashboard/StudentDashboard/EnrolledClasses";
+import PaymentHistory from "../pages/Dashboard/StudentDashboard/PaymentHistory";
+import SelectedClasses from "../pages/Dashboard/StudentDashboard/selectedClasses";
+import DashboardHome from "../pages/Dashboard/DashboardHome";
 export const router = createBrowserRouter([
     {
       path: "/",
@@ -52,17 +55,23 @@ export const router = createBrowserRouter([
         element: <DashboardLayout></DashboardLayout>,
         children: [
             {
-                path: 'admin-home',
-                element: <AdminDashboard></AdminDashboard>
+                path: 'dashboard',
+                element: <DashboardHome></DashboardHome>
             },
             {
-                path: 'teacher-home',
-                element: <TeacherDashboard></TeacherDashboard>
+                path: 'selected-class',
+                element: <SelectedClasses></SelectedClasses>
             },
             {
-                path:'student-home',
-                element: <StudentDashboard></StudentDashboard>
+                path: 'enrolled-class',
+                element: <EnrolledClasses></EnrolledClasses>
+            },
+            {
+                path:'payment-history',
+                element:<PaymentHistory></PaymentHistory>
             }
+            // student dashboard
+
 
         ]
     }

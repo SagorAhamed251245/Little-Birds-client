@@ -3,11 +3,13 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import Button from "../../component/Button/Button";
+import { setNewUser } from "../../api/setUserAuth";
 
 const Register = () => {
 
     const { register, handleSubmit } = useForm();
     const navigate = useNavigate()
+    
 
     const { createUser, setUserProfile, } = useContext(AuthContext)
 
@@ -20,6 +22,7 @@ const Register = () => {
                 .then(result => {
                     console.log(result.user)
                     setUserProfile(name, photo)
+                    setNewUser(result.user)
                     navigate('/')
 
                 })
