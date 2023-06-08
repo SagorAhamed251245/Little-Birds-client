@@ -1,7 +1,7 @@
 import {
     createBrowserRouter,
-    
-  } from "react-router-dom";
+
+} from "react-router-dom";
 import Main from "../layout/Main/Main";
 
 import Login from "../pages/Login/Login";
@@ -17,30 +17,34 @@ import EnrolledClasses from "../pages/Dashboard/StudentDashboard/EnrolledClasses
 import PaymentHistory from "../pages/Dashboard/StudentDashboard/PaymentHistory";
 import SelectedClasses from "../pages/Dashboard/StudentDashboard/selectedClasses";
 import DashboardHome from "../pages/Dashboard/DashboardHome";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 export const router = createBrowserRouter([
     {
-      path: "/",
-      element: <Main></Main>,
-      children: [
-        {
-            path: "/",
-            element:<Home></Home>
-        },
-        {
-            path: 'instructors',
-            element:< Instructors></Instructors>
-        },
-        {
-            path: 'classes',
-            element:<Classes></Classes>
-        },
-        {
-            path: 'class/:id',
-            element: <ClassDetails></ClassDetails>,
-            loader: ({params}) => fetch(`${import.meta.env.VITE_apiUrl}/class/${params.id}`)
-            
-        }
-      ]
+        path: "/",
+        element: <Main></Main>,
+        children: [
+            {
+                path: "/",
+                element: <Home></Home>
+            },
+            {
+                path: 'instructors',
+                element: < Instructors></Instructors>
+            },
+            {
+                path: 'classes',
+                element: <Classes></Classes>
+            },
+            {
+                path: 'class/:id',
+                element: 
+                <PrivateRoute>
+                    <ClassDetails></ClassDetails>
+                </PrivateRoute>,
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_apiUrl}/class/${params.id}`)
+
+            }
+        ]
     },
     {
         path: 'login',
@@ -52,7 +56,9 @@ export const router = createBrowserRouter([
     },
     {
         path: 'dashboard',
-        element: <DashboardLayout></DashboardLayout>,
+        element: <PrivateRoute>
+                  <DashboardLayout></DashboardLayout>
+                </PrivateRoute>,
         children: [
             {
                 path: 'dashboard',
@@ -67,12 +73,12 @@ export const router = createBrowserRouter([
                 element: <EnrolledClasses></EnrolledClasses>
             },
             {
-                path:'payment-history',
-                element:<PaymentHistory></PaymentHistory>
+                path: 'payment-history',
+                element: <PaymentHistory></PaymentHistory>
             }
             // student dashboard
 
 
         ]
     }
-  ]);
+]);
