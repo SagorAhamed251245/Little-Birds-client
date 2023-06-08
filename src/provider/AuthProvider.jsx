@@ -1,10 +1,11 @@
-import  { createContext } from 'react';
-import {getAuth, createUserWithEmailAndPassword, updateProfile,  onAuthStateChanged, signInWithEmailAndPassword, signOut,  } from "firebase/auth";
+import { createContext } from 'react';
+import { getAuth, createUserWithEmailAndPassword, updateProfile, onAuthStateChanged, signInWithEmailAndPassword, signOut, } from "firebase/auth";
 import app from '../firebase/firebase.config';
 
 
 import { useEffect } from 'react';
 import { useState } from 'react';
+import axios from 'axios';
 
 
 
@@ -18,7 +19,7 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
 
-    
+
     const createUser = (email, password) => {
 
         setLoading(true)
@@ -34,12 +35,14 @@ const AuthProvider = ({ children }) => {
     const singInUser = (email, password) => {
         setLoading(true)
 
-        return signInWithEmailAndPassword(auth , email, password)
+        return signInWithEmailAndPassword(auth, email, password)
     }
 
     const logOut = () => {
-        setLoading(true)
+       
 
+        setLoading(true)
+        localStorage.removeItem('access-token')
         return signOut(auth)
     }
 
@@ -49,7 +52,26 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, loggedUser => {
 
             setUser(loggedUser)
-            setLoading(false)
+            console.log(loggedUser.email);
+            if (loggedUser) {
+                console.log('inter asious');
+
+
+
+                axios.post(`${import.meta.env.VITE_apiUrl}/jwt`, {
+                    email: loggedUser.email,
+                })
+                    .then(data => {
+                        console.log(data.data.token);
+                        localStorage.setItem('access-token', data.data.token)
+                        setLoading(false)
+                    })
+            }
+            else {
+                localStorage.removeItem('access-token')
+                setLoading(false)
+            }
+            
 
 
         })
@@ -60,7 +82,7 @@ const AuthProvider = ({ children }) => {
     }, [])
 
 
-    
+
     const authInfo = {
         user,
         createUser,
@@ -68,9 +90,9 @@ const AuthProvider = ({ children }) => {
         logOut,
         setUserProfile,
         loading,
-       
-       
-        
+
+
+
     }
 
     return (
