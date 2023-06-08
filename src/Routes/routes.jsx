@@ -18,6 +18,12 @@ import PaymentHistory from "../pages/Dashboard/StudentDashboard/PaymentHistory";
 import SelectedClasses from "../pages/Dashboard/StudentDashboard/selectedClasses";
 import DashboardHome from "../pages/Dashboard/DashboardHome";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import ManageClasses from "../pages/Dashboard/AdminDashboard/ManageClasses";
+import ManageUsers from "../pages/Dashboard/AdminDashboard/ManageUsers";
+import AddClass from "../pages/Dashboard/TeacherDashboard/AddClass";
+import MyClass from "../pages/Dashboard/TeacherDashboard/MyClass";
+import EnrolledStudents from "../pages/Dashboard/TeacherDashboard/EnrolledStudents";
+import Feedback from "../pages/Dashboard/TeacherDashboard/Feedback";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -37,10 +43,10 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'class/:id',
-                element: 
-                <PrivateRoute>
-                    <ClassDetails></ClassDetails>
-                </PrivateRoute>,
+                element:
+                    <PrivateRoute>
+                        <ClassDetails></ClassDetails>
+                    </PrivateRoute>,
                 loader: ({ params }) => fetch(`${import.meta.env.VITE_apiUrl}/class/${params.id}`)
 
             }
@@ -57,8 +63,8 @@ export const router = createBrowserRouter([
     {
         path: 'dashboard',
         element: <PrivateRoute>
-                  <DashboardLayout></DashboardLayout>
-                </PrivateRoute>,
+            <DashboardLayout></DashboardLayout>
+        </PrivateRoute>,
         children: [
             {
                 path: 'dashboard',
@@ -75,9 +81,40 @@ export const router = createBrowserRouter([
             {
                 path: 'payment-history',
                 element: <PaymentHistory></PaymentHistory>
-            }
-            // student dashboard
+            },
+            // student dashboard END
+            // admin dashboard starting 
+            {
+                path: 'manage-classes',
+                element: <ManageClasses></ManageClasses>
 
+            },
+            {
+                path: 'manage-users',
+                element: <ManageUsers></ManageUsers>
+
+            },
+            // admin dashboard ending
+            // teacher dashboard starting
+            {
+                path:'add-class',
+                element: <AddClass></AddClass>
+
+
+            },
+            {
+                path: 'my-class',
+                element: <MyClass></MyClass>
+            },
+            {
+                path:'enrolled-history',
+                element: <EnrolledStudents></EnrolledStudents>
+            },
+            {
+                path: 'feedback-status',
+                element: <Feedback></Feedback>
+            }
+            // teacher dashboard end
 
         ]
     }

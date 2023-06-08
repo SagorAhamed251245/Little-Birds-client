@@ -13,8 +13,8 @@ const DashboardNav = () => {
         li = (
           <>
             <Link to={'dashboard'}>Dashboard Home</Link>
-            <Link to={'selected-class'}>Manage Classes</Link>
-            <Link to={'enrolled-class'}>Manage Users</Link>
+            <Link to={'manage-classes'}>Manage Classes</Link>
+            <Link to={'manage-users'}>Manage Users</Link>
           </>
         );
       } else if (UserByEmail && UserByEmail.role === 'teacher') {
