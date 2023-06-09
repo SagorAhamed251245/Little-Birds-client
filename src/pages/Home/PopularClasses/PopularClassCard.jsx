@@ -14,7 +14,7 @@ const PopularClassCard = ({ item }) => {
                     <p>Price: ${price}</p>
                     <p>Available Seats: {available_seats}</p>
                     <div className="card-actions justify-end">
-                        <Link to={`class/${_id}`} className="w-full"><Button title={"Enroll Now"}></Button></Link>
+                        <Link to={`class/${_id}`} className="w-full"><Button title={"View Details"}></Button></Link>
                     </div>
                 </div>
             </div>

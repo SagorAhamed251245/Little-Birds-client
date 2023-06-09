@@ -2,12 +2,44 @@ import { Link, useLoaderData } from "react-router-dom";
 import Container from "../../component/Container/Container";
 import Button from "../../component/Button/Button";
 import SectionTitle from "../../component/SectionTitle/SectionTitle";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
+import useAxiosSecure from "../../api/useAxiosSecure";
+import FindUser from "../../api/FindUers";
+import { toast } from "react-hot-toast";
+
 
 
 const ClassDetails = () => {
   const classItem = useLoaderData();
-  const {  className, available_seats, classImage,instructor_email,  instructor, instructor_image, number_of_students, price, description } = classItem;
+  const {user} = useContext(AuthContext)
+  const [UserByEmail] = FindUser()
+  const [axiosSecure] = useAxiosSecure()
+  const [disabled , setDisabled] = useState(false)
+  // import items
+  const {_id , className, available_seats, classImage,instructor_email,  instructor, instructor_image, number_of_students, price, description } = classItem;
+  console.log(UserByEmail);
 
+  const bookingInfo = {
+    className, classImage, instructor_email,  instructor, instructor_image, price,  Product_id:_id, user_email: user?.email, user_name: user?.displayName
+  }
+  // console.log(user);
+
+ useEffect(()=> {
+  if(UserByEmail?.role === 'admin' || UserByEmail?.role === 'teacher' ){
+    setDisabled(true)
+  }
+ }, [UserByEmail?.role])
+
+  
+const handelBooking = () => {
+  axiosSecure.post('/bookings', bookingInfo )
+  .then(res => {
+    console.log(res);
+    toast.success('Class  Successfully Added To Cart')
+  })
+  .catch(err => console.log(err))
+}
 
   return (
     <>
@@ -34,8 +66,8 @@ const ClassDetails = () => {
             <p>Price: ${price}</p>
             <p>Available Seats: {available_seats}</p>
             <p className="mb-5 w-full grow">Description: {description}</p>
-            <div className="card-actions justify-end  rounded-lg border-black border ">
-              <Link  className="w-full"><Button title={"Add to Cart"}></Button></Link>
+            <div  className="card-actions justify-end   rounded-lg border-black border ">
+              <Link  onClick={handelBooking} className="w-full disabled "><Button  disabled={disabled}  title={"Enroll Now"}></Button></Link>
             </div>
           </div>
         </div>

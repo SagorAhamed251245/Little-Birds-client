@@ -52,7 +52,7 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, loggedUser => {
 
             setUser(loggedUser)
-            console.log(loggedUser.email);
+            console.log(loggedUser?.email);
             if (loggedUser) {
                 console.log('inter asious');
 
