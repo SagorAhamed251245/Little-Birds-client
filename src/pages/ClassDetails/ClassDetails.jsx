@@ -10,36 +10,62 @@ import { toast } from "react-hot-toast";
 
 
 
+
+
 const ClassDetails = () => {
   const classItem = useLoaderData();
-  const {user} = useContext(AuthContext)
+  const { user } = useContext(AuthContext)
   const [UserByEmail] = FindUser()
   const [axiosSecure] = useAxiosSecure()
-  const [disabled , setDisabled] = useState(false)
+  const [disabled, setDisabled] = useState(false)
   // import items
-  const {_id , className, available_seats, classImage,instructor_email,  instructor, instructor_image, number_of_students, price, description } = classItem;
-  console.log(UserByEmail);
+  const { _id, className, available_seats, classImage, instructor_email, instructor, instructor_image, number_of_students, price, description } = classItem;
+
 
   const bookingInfo = {
-    className, classImage, instructor_email,  instructor, instructor_image, price,  Product_id:_id, user_email: user?.email, user_name: user?.displayName
+    className, classImage, instructor_email, instructor, instructor_image, price, Product_id: _id, user_email: user?.email, user_name: user?.displayName
   }
-  // console.log(user);
-
- useEffect(()=> {
-  if(UserByEmail?.role === 'admin' || UserByEmail?.role === 'teacher' ){
-    setDisabled(true)
-  }
- }, [UserByEmail?.role])
 
   
-const handelBooking = () => {
-  axiosSecure.post('/bookings', bookingInfo )
-  .then(res => {
-    console.log(res);
-    toast.success('Class  Successfully Added To Cart')
-  })
-  .catch(err => console.log(err))
-}
+  // console.log(user);
+
+  useEffect(() => {
+    if (UserByEmail?.role === 'admin' || UserByEmail?.role === 'teacher') {
+      setDisabled(true)
+    }
+  }, [UserByEmail?.role])
+
+ 
+
+  const handelBooking = () => {
+
+
+  
+
+
+
+    axiosSecure.post('/bookings', bookingInfo )
+    .then(res => {
+      
+      
+      toast.success('Class  Successfully Added To Cart')
+    })
+    .catch(err => console.log(err))
+
+
+  }
+
+  axiosSecure.get(`/bookings/${_id}`)
+    .then(res => {
+      console.log(res.data?.Product_id
+
+      );
+      if (res.data?.Product_id === _id) {
+        setDisabled(true)
+      }
+
+    })
+    .catch(err => console.log(err))
 
   return (
     <>
@@ -66,8 +92,8 @@ const handelBooking = () => {
             <p>Price: ${price}</p>
             <p>Available Seats: {available_seats}</p>
             <p className="mb-5 w-full grow">Description: {description}</p>
-            <div  className="card-actions justify-end   rounded-lg border-black border ">
-              <Link  onClick={handelBooking} className="w-full disabled "><Button  disabled={disabled}  title={"Enroll Now"}></Button></Link>
+            <div className="card-actions justify-end   rounded-lg border-black border ">
+              <Link onClick={handelBooking} className="w-full disabled "><Button disabled={disabled} title={"Enroll Now"}></Button></Link>
             </div>
           </div>
         </div>
