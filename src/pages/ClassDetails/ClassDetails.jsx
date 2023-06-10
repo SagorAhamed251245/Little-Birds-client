@@ -30,10 +30,10 @@ const ClassDetails = () => {
   // console.log(user);
 
   useEffect(() => {
-    if (UserByEmail?.role === 'admin' || UserByEmail?.role === 'teacher') {
+    if (UserByEmail?.role === 'admin' || UserByEmail?.role === 'teacher' || available_seats == 0) {
       setDisabled(true)
     }
-  }, [UserByEmail?.role])
+  }, [UserByEmail?.role, available_seats])
 
  
 

@@ -1,9 +1,8 @@
+import PaymentHistory from "./PaymentHistory";
 
 const EnrolledClasses = () => {
     return (
-        <div>
-            <h1> THis is enrolled class</h1>
-        </div>
+      <PaymentHistory title={'My Enrolled Class'} subTitle={"You Haven't Enrolled any Class"}></PaymentHistory>
     );
 };
 

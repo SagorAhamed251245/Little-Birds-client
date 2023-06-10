@@ -11,7 +11,7 @@ const useCart = () => {
         enabled: !loading,
         queryFn: async () => {
             const res = await axiosSecure(`/userBookings/${user?.email}`)
-            console.log('res from axios', res)
+           
             return res.data;
         },
     })
