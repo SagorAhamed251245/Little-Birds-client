@@ -23,7 +23,7 @@ const ClassDetails = () => {
 
 
   const bookingInfo = {
-    className, classImage, instructor_email, instructor, available_seats, instructor_image, price, Product_id: _id, user_email: user?.email, user_name: user?.displayName
+    className, classImage, instructor_email, instructor, available_seats, instructor_image, price, Product_id: _id, user_email: user?.email, user_name: user?.displayName , date: new Date()
   }
 
   
@@ -46,7 +46,7 @@ const ClassDetails = () => {
 
     axiosSecure.post('/bookings', bookingInfo )
     .then(res => {
-      
+      console.log(res);
       toast.success('Class  Successfully Added To Cart')
     })
     .catch(err => console.log(err))

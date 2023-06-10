@@ -1,7 +1,10 @@
 
+import { toast } from "react-hot-toast";
+import useAxiosSecure from "../../../api/useAxiosSecure";
 import useCart from "../../../api/useCart";
 import Button from "../../../component/Button/Button";
 import SectionTitle from "../../../component/SectionTitle/SectionTitle";
+import SelectedClassesTable from "./SelectedClassesTable";
 
 
 
@@ -9,6 +12,7 @@ const SelectedClasses = () => {
 
     const [cart] = useCart()
     console.log(cart);
+   
 
 
     return (
@@ -24,6 +28,7 @@ const SelectedClasses = () => {
                         <th></th>
                         <th>Name</th>
                         <th>Seats</th>
+                        <th>Date</th>
                         <th>Price</th>
                         <th></th>
                         <th></th>
@@ -33,36 +38,13 @@ const SelectedClasses = () => {
                     {/* row 1 */}
 
                     {
-                        cart.map((item, index )=> <>
-                            <tr>
-                                <td>
-                                   {index + 1}
-                                </td>
-                                <td>
-                                    <div className="avatar">
-                                        <div className="mask mask-squircle w-24 h-24">
-                                            <img src={item.classImage} />
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                {item.className}
-                                </td>
-                                <td>
-                                    {item.available_seats}
-
-                                </td>
-                                <td>${item.price}</td>
-                                <th>
-
-                                    <Button title={'delete'}></Button>
-
-                                </th>
-                                <th>
-                                    <Button title={'Pay'}></Button>
-                                </th>
-                            </tr>
-                        </>)
+                        cart.map((item, index) => 
+                            <SelectedClassesTable
+                            key={item._id}
+                            item={item}
+                            index={index}
+                            ></SelectedClassesTable>
+                        )
                     }
 
 
