@@ -1,8 +1,6 @@
 
-import { toast } from "react-hot-toast";
-import useAxiosSecure from "../../../api/useAxiosSecure";
 import useCart from "../../../api/useCart";
-import Button from "../../../component/Button/Button";
+
 import SectionTitle from "../../../component/SectionTitle/SectionTitle";
 import SelectedClassesTable from "./SelectedClassesTable";
 

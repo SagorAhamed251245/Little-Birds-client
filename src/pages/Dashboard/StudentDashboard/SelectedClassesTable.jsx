@@ -1,8 +1,10 @@
 import { toast } from "react-hot-toast";
 import useAxiosSecure from "../../../api/useAxiosSecure";
 import Button from "../../../component/Button/Button";
+import useCart from "../../../api/useCart";
 
 const SelectedClassesTable = ({ item, index }) => {
+    const [, refetch] = useCart()
 
     const [axiosSecure] = useAxiosSecure()
     console.log(item);
@@ -12,18 +14,43 @@ const SelectedClassesTable = ({ item, index }) => {
         Product_id, paymentId: _id, classImage, className, price, user_email, date: new Date()
 
     }
+
+    console.log(_id);
     // delete function
 
-    const handelDeleteItem = () => {
+    const handelDeleteItem = (id) => {
+        axiosSecure.delete(`/deleteBookings/${id}`)
+                .then(deleteRes => {
+                    console.log(deleteRes);
+                    toast.success('Class  Successfully deleted To Cart')
+                    refetch()
+                    
+                })
+                .catch(deleteErr => {
+                    console.log(deleteErr);
+                   
+                });
 
     }
     // payment function
-    const handelPaymentItem = () => {
+    const handelPaymentItem = (id) => {
         console.log('hande clicked');
 
         axiosSecure.post('/payments', paymentInfo)
             .then(res => {
                 console.log(res);
+               
+                axiosSecure.delete(`/deleteBookings/${id}`)
+                .then(deleteRes => {
+                    console.log(deleteRes);
+                    refetch()
+                    
+                })
+                .catch(deleteErr => {
+                    console.log(deleteErr);
+                   
+                });
+
                 toast.success('Class  Successfully Added To Cart')
             })
             .catch(err => console.log(err))
@@ -52,13 +79,13 @@ const SelectedClassesTable = ({ item, index }) => {
             <td>${item.price}</td>
             <th>
 
-                <div onClick={() => handelDeleteItem()}>
+                <div onClick={() => handelDeleteItem(_id)}>
                     <Button title={'delete'}></Button>
                 </div>
 
             </th>
             <th>
-                <div onClick={() => handelPaymentItem()}>
+                <div onClick={() => handelPaymentItem(_id)}>
 
                     <Button title={'Pay'}></Button>
                 </div>
