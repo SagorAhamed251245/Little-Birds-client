@@ -4,10 +4,10 @@ import DashboardNav from "../../../shared/DashboardNav/DashboardNav";
 const DashboardLayout = () => {
     return (
         <div className="flex">
-            <div className="">
+            <div className="w-[20%]">
                 <DashboardNav></DashboardNav>
             </div>
-            <div className="">
+            <div className="w-[80%]">
                 <Outlet></Outlet>
             </div>
 
