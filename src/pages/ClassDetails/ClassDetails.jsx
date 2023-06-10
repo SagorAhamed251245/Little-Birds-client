@@ -19,11 +19,11 @@ const ClassDetails = () => {
   const [axiosSecure] = useAxiosSecure()
   const [disabled, setDisabled] = useState(false)
   // import items
-  const { _id, className, available_seats, classImage, instructor_email, instructor, instructor_image, number_of_students, price, description } = classItem;
+  const { _id, className, available_seats, classImage, instructor_email, instructor, instructor_image, number_of_students, price, description,  } = classItem;
 
 
   const bookingInfo = {
-    className, classImage, instructor_email, instructor, available_seats, instructor_image, price, Product_id: _id, user_email: user?.email, user_name: user?.displayName , date: new Date()
+    className, classImage, instructor_email, instructor, available_seats, instructor_image, price, Product_id: _id, user_email: user?.email, user_name: user?.displayName , date: new Date(), number_of_students
   }
 
   
