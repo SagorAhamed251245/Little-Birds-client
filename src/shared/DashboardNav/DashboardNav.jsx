@@ -44,16 +44,16 @@ const DashboardNav = () => {
 
 
     return (
-        <div className="drawer lg:drawer-open ">
+        <div className="drawer lg:drawer-open h-full">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content  flex flex-col items-center justify-center">
                 {/* Page content here */}
                 <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
 
             </div>
-            <div className="drawer-side ">
+            <div className="drawer-side h-full">
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                <ul className="menu p-4 w-80 h-full  text-base-content gap-10 items-center bg-pink-200">
+                <ul className="menu h-[120vh] p-4 w-80   text-base-content gap-10 items-center bg-pink-200 ">
                     {/* Sidebar content here */}
                     {li}
 
