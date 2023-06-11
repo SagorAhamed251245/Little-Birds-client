@@ -1,22 +1,16 @@
 import usePaymentCart from "../../../api/usePaymentCart";
 import DataNotFound from "../../../component/DataNotFound/DataNotFound";
+import NumericDate from "../../../component/NumericDate/NumericDate";
+
 import SectionTitle from "../../../component/SectionTitle/SectionTitle";
 
 const PaymentHistory = ({title, subTitle}) => {
     const [paymentCart] = usePaymentCart();
-    console.log(paymentCart);
-    const formatDate = (dateStr) => {
-        const date = new Date(dateStr);
-        const options = {
-            day: "numeric",
-            month: "long",
-            year: "numeric",
-            hour: "numeric",
-            minute: "numeric",
-            second: "numeric",
-        };
-        return date.toLocaleString("en-US", options);
-    };
+    const { formatDate } = NumericDate();
+    
+
+
+   
     return (
         <div className="overflow-x-auto w-full">
             <SectionTitle heading={`${title ? title : 'Payment History'}`}></SectionTitle>
@@ -30,7 +24,6 @@ const PaymentHistory = ({title, subTitle}) => {
                         </th>
                         <th></th>
                         <th>Name</th>
-                        <th>Seats</th>
                         <th>Date</th>
                         <th>Price</th>
                         
@@ -56,10 +49,7 @@ const PaymentHistory = ({title, subTitle}) => {
                                 <td>
                                     {item.className}
                                 </td>
-                                <td>
-                                    {item.available_seats}
-
-                                </td>
+                                
                                 <td>{formatDate(item?.date)}</td>
                                 <td>${item.price}</td>
                                 

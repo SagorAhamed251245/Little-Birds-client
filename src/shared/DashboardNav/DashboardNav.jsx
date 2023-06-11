@@ -12,7 +12,7 @@ const DashboardNav = () => {
         console.log("role: admin");
         li = (
           <>
-            <Link to={'dashboard'}>Dashboard Home</Link>
+            
             <Link to={'manage-classes'}>Manage Classes</Link>
             <Link to={'manage-users'}>Manage Users</Link>
           </>
@@ -21,7 +21,7 @@ const DashboardNav = () => {
         console.log("role: teacher");
         li = (
           <>
-            <Link to={'dashboard'}>Dashboard Home</Link>
+           
             <Link to={'add-class'}>Add a Class</Link>
             <Link to={'my-class'}>My Classes</Link>
             <Link to={'enrolled-history'}>Enrolled Students</Link>
@@ -32,7 +32,7 @@ const DashboardNav = () => {
         console.log("role: student");
         li = (
           <>
-            <Link to={'dashboard'}>Dashboard Home</Link>
+           
             <Link to={'selected-class'}>Selected Class</Link>
             <Link to={'enrolled-class'}>Enrolled-class</Link>
             <Link to={'payment-history'}>Payment-history</Link>
