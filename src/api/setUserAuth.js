@@ -1,6 +1,7 @@
 export const setNewUser = user => {
     const newUser = {
       email: user.email,
+      user_name:user.displayName,
       
     }
   
