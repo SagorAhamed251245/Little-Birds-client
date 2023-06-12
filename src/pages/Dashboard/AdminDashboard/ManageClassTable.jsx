@@ -4,55 +4,78 @@ import useAxiosSecure from "../../../api/useAxiosSecure";
 import Button from "../../../component/Button/Button";
 import NumericDate from "../../../component/NumericDate/NumericDate";
 import ApprovedClass from "../../../api/ApprovedClass";
+import { useState } from "react";
 
 
 
 
 const ManageClassTable = ({ item, index }) => {
-
+    
+   const [disabled, setDisabled ] = useState(false)
     const [, refetch] = ApprovedClass()
 
     const [axiosSecure] = useAxiosSecure()
     const { formatDate } = NumericDate();
-    
-   
-    
+
+    console.log(item);
+
+
+
 
 
     const handleApprovedClass = (id) => {
         delete item?._id;
-        
-        axiosSecure.post('/PostClasses', item)
+        let { status } = item;
+        status = 'approved';
+        const updatedItem = { ...item, status: status };
+
+        axiosSecure.post(`/PostClasses`, updatedItem)
             .then(res => {
                 console.log(res);
-                refetch()
-                axiosSecure.delete(`/deleteClass/${id}`)
-                    .then(deleteRes => {
-                        console.log(deleteRes);
-                       
-                        
+                setDisabled(true)
+                axiosSecure
+                    .patch(`/UpdateStatus/${id}`, { status: status })
+                    .then((response) => {
+                        console.log(response);
+                        // Handle success
                     })
-                    .catch(deleteErr => {
-                        console.log(deleteErr);
+                    .catch((error) => {
+                        console.error("Error updating status:", error);
+                        // Handle error
                     });
-                    toast.success('Successfully Approved Class')
-                    
+                refetch();
+                // Update the status after posting the class
             })
             .catch(err => console.log(err));
     };
 
+
+    const handleDenyClass = (id) => {
+        axiosSecure.patch(`/UpdateStatus/${id}`, { status: 'deny' })
+            .then((response) => {
+                console.log(response);
+                setDisabled(true)
+                toast.success(`Class is  ${'Deny'} `)
+                refetch();
+            })
+            .catch((error) => {
+                console.error('Error updating user role:', error);
+            });
+
+    }
+
     const handleDeleteClass = (id) => {
         // Handle delete class logic
         axiosSecure.delete(`/deleteClass/${id}`)
-                    .then(deleteRes => {
-                        console.log(deleteRes);
-                        toast.success('Successfully Deleted')
-                        refetch()
-                       
-                    })
-                    .catch(deleteErr => {
-                        console.log(deleteErr);
-                    });
+            .then(deleteRes => {
+                console.log(deleteRes);
+                toast.success('Successfully Deleted')
+                refetch()
+
+            })
+            .catch(deleteErr => {
+                console.log(deleteErr);
+            });
     };
 
     return (
@@ -66,19 +89,44 @@ const ManageClassTable = ({ item, index }) => {
                 </div>
             </td>
             <td>{item.className}</td>
+            <td>{item.instructor}</td>
+            <td>{item.instructor_email}</td>
             <td>{item.available_seats}</td>
             <td>{formatDate(item?.uploadDate)}</td>
             <td>${item.price}</td>
-            <th>
-                <div onClick={()=>handleDeleteClass(item?._id)}>
-                    <Button title="Delete" />
+            <td className={`uppercase ${item.status === 'pending' ? 'text-orange-500' : item.status === 'approved' ? 'text-green-500' : item.status === 'deny' ? 'text-red-500' : ''}`}>{item.status}</td>
+
+
+            <td >
+
+
+                <div className="my-2">
+                    <div onClick={() => handleApprovedClass(item?._id)}>
+                        <Button disabled={!disabled} title=" Approved" />
+                    </div>
                 </div>
-            </th>
-            <th>
-                <div onClick={()=>handleApprovedClass(item?._id)}>
-                    <Button title="Approve" />
+
+                <div>
+                    <div onClick={() => handleDenyClass(item?._id)} >
+                        <Button disabled={!disabled} title=" Deny" />
+                    </div>
                 </div>
-            </th>
+            </td>
+            <td >
+                <div className="my-2">
+                    <div >
+                        <Button title="Feedback" />
+                    </div>
+                </div>
+
+                <div>
+                    <div onClick={() => handleDeleteClass(item?._id)}>
+                        <Button title="Delete" />
+                    </div>
+                </div></td>
+
+
+
         </tr>
     );
 };

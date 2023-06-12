@@ -22,7 +22,8 @@ const AddClass = () => {
             price: parseFloat(price),
             available_seats: parseInt(available_seats), 
             number_of_students: parseInt(number_of_students),
-            uploadDate: new Date()
+            uploadDate: new Date(),
+            status: 'pending'
 
         };
 
