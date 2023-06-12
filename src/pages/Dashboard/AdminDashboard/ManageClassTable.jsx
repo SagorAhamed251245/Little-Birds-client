@@ -3,10 +3,11 @@ import { toast } from "react-hot-toast";
 import useAxiosSecure from "../../../api/useAxiosSecure";
 import Button from "../../../component/Button/Button";
 import NumericDate from "../../../component/NumericDate/NumericDate";
-import ApprovedClass from "../../../api/ApprovedClass";
+
 import { useEffect, useState } from "react";
 
 import ApplyFeedback from "../../../shared/FeedBack/ApplyFeedback";
+import { ApprovedClass } from "../../../api/ApprovedClass";
 
 
 

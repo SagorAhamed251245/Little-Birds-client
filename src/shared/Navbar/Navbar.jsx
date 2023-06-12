@@ -10,10 +10,9 @@ const Navbar = () => {
         <li><Link to={'instructors'}>Instructors</Link></li>
         <li><Link to={'classes'}>Classes</Link></li>
         <li><Link to={'dashboard'}>dashboard</Link></li>
-        <li><Link to={'login'}>Login</Link></li>
-        <li><Link to={'register'}>Register</Link></li>
-        
-        
+
+
+
 
 
     </>
@@ -38,15 +37,23 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <div className="mr-2" onClick={logOut}>
-                    <Button title={'Log Out'} ></Button>
-                </div>
-                <div className="avatar">
-                    <div className="w-10 mask mask-squircle text-black">
-                        <img src={user?.photoURL} />
-                       
-                    </div>
-                </div>
+                {
+                    user?.email ? <>
+                        <div className="mr-2" onClick={logOut}>
+                            <Button title={'Log Out'} ></Button>
+                        </div>
+                        <div className="avatar">
+                            <div className="w-10 mask mask-squircle text-black">
+                                <img src={user?.photoURL} />
+
+                            </div>
+                        </div></> :
+                        <>
+                            <Link className="mr-2" to={'login'}><Button title={'Login'} ></Button></Link>
+                            <Link to={'register'}><Button title={'Register'} ></Button></Link>
+                        </>
+                }
+
 
             </div>
         </div>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Button from "../../component/Button/Button";
 import useAxiosSecure from "../../api/useAxiosSecure";
+import { toast } from "react-hot-toast";
 
 
 const ApplyFeedback = ({item}) => {
@@ -8,25 +9,23 @@ const ApplyFeedback = ({item}) => {
     const [axiosSecure] = useAxiosSecure()
    
 
-    const handelSubmitFeedback = () => {
+    const handelSubmitFeedback = (id) => {
 
                 
           const text =  document.getElementById("feedbackMessage").value ;
-          const feedbackItem = {
-            ...item , feedbackId: item._id , feedbackMessage : text 
-
-          }
-          delete feedbackItem?._id;
+        
           
           
-          axiosSecure.post('feedbackByAdmin', feedbackItem)
-            .then(res => {
-                console.log(res);
-              
-                
-                // Update the status after posting the class
-            })
-            .catch(err => console.log(err));
+          axiosSecure.patch(`/UpdateFeedback/${id}`, { feedback: text })
+                    .then((response) => {
+                        console.log(response);
+                        // Handle success
+                        toast.success('Feed Back Send')
+                    })
+                    .catch((error) => {
+                        console.error("Error updating status:", error);
+                        // Handle error
+                    });
 
     }
     return (
@@ -76,7 +75,7 @@ const ApplyFeedback = ({item}) => {
                                     <div
                                         className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                                         
-                                        onClick={() =>  { setShowModal(false) ,handelSubmitFeedback()}}
+                                        onClick={() =>  { setShowModal(false) ,handelSubmitFeedback(item?._id)}}
                                     >
                                         <Button title={'Send'}></Button>
                                     </div>

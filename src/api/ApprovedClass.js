@@ -4,7 +4,7 @@ import { AuthContext } from '../provider/AuthProvider';
 import useAxiosSecure from './useAxiosSecure';
 
 
-const ApprovedClass = () => {
+export const ApprovedClass = () => {
    
         const { user, loading } = useContext(AuthContext);
     
@@ -24,5 +24,8 @@ const ApprovedClass = () => {
     
 };
 
-export default ApprovedClass;
+
+
+
+
 

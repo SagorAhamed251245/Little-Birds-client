@@ -1,7 +1,8 @@
-import ApprovedClass from "../../../api/ApprovedClass";
+
 import SectionTitle from "../../../component/SectionTitle/SectionTitle";
 import ManageClassTable from "./ManageClassTable";
 import DataNotFound from "../../../component/DataNotFound/DataNotFound";
+import { ApprovedClass } from "../../../api/ApprovedClass";
 
 const ManageClasses = () => {
     const [approvedClass] = ApprovedClass()
