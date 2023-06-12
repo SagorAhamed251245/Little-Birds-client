@@ -82,7 +82,9 @@ export const router = createBrowserRouter([
             // admin dashboard starting 
             {
                 path: 'manage-classes',
-                element: <ManageClasses></ManageClasses>
+                element: 
+                    <ManageClasses></ManageClasses>
+                
 
             },
             {

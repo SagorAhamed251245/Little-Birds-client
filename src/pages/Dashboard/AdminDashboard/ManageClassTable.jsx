@@ -4,14 +4,16 @@ import useAxiosSecure from "../../../api/useAxiosSecure";
 import Button from "../../../component/Button/Button";
 import NumericDate from "../../../component/NumericDate/NumericDate";
 import ApprovedClass from "../../../api/ApprovedClass";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+import ApplyFeedback from "../../../shared/FeedBack/ApplyFeedback";
 
 
 
 
 const ManageClassTable = ({ item, index }) => {
-    
-   const [disabled, setDisabled ] = useState(false)
+
+    const [disabled, setDisabled] = useState(false)
     const [, refetch] = ApprovedClass()
 
     const [axiosSecure] = useAxiosSecure()
@@ -20,7 +22,11 @@ const ManageClassTable = ({ item, index }) => {
     console.log(item);
 
 
-
+    useEffect(() => {
+        if (item.status === 'approved' || item.status === 'deny') {
+            setDisabled(true)
+        }
+    }, [item.status])
 
 
     const handleApprovedClass = (id) => {
@@ -102,20 +108,21 @@ const ManageClassTable = ({ item, index }) => {
 
                 <div className="my-2">
                     <div onClick={() => handleApprovedClass(item?._id)}>
-                        <Button disabled={!disabled} title=" Approved" />
+                        <Button disabled={disabled} title=" Approved" />
                     </div>
                 </div>
 
                 <div>
                     <div onClick={() => handleDenyClass(item?._id)} >
-                        <Button disabled={!disabled} title=" Deny" />
+                        <Button disabled={disabled} title=" Deny" />
                     </div>
                 </div>
             </td>
             <td >
                 <div className="my-2">
                     <div >
-                        <Button title="Feedback" />
+
+                        <ApplyFeedback item={item}></ApplyFeedback>
                     </div>
                 </div>
 
