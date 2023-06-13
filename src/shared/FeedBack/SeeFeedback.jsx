@@ -2,7 +2,7 @@ import { useState } from "react";
 import Button from "../../component/Button/Button";
 
 
-const SeeFeedback = () => {
+const SeeFeedback = ({item}) => {
     const [showModal, setShowModal] = useState(false);
     return (
         <>
@@ -35,11 +35,8 @@ const SeeFeedback = () => {
                                 {/*body*/}
                                 <div className="relative p-6 flex-auto">
                                     <p className="my-4 text-slate-500 text-lg leading-relaxed">
-                                        I always felt like I could do anything. That’s the main
-                                        thing people are controlled by! Thoughts- their perception
-                                        of themselves!  slowed down by their perception of
-                                        themselves. If  taught you can’t do anything, you
-                                        won’t do anything. I was taught I could do everything.
+                                       {item?.feedback ? item.feedback : 'No feedback available'}
+                                       
                                     </p>
                                 </div>
                                 {/*footer*/}
