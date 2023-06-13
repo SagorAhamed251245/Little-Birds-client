@@ -16,7 +16,7 @@ const MyClass = () => {
     const approvedClasses = findClassByEmail.filter(
       (item) => item?.Status === "approved"
     );
-  console.log(approvedClasses);
+  
     const deniedClasses = myAllClass.filter(
       (item) => item?.Status !== "approved"
     );

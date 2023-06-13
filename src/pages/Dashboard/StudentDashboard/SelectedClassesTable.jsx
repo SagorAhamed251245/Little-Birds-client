@@ -3,21 +3,22 @@ import useAxiosSecure from "../../../api/useAxiosSecure";
 import Button from "../../../component/Button/Button";
 import useCart from "../../../api/useCart";
 import useClass from "../../../api/useClass";
+import { Link } from "react-router-dom";
 
 const SelectedClassesTable = ({ item, index }) => {
     const [, refetch] = useCart()
-    const [classes] = useClass()
-    console.log(classes);
+    
+    
 
     const [axiosSecure] = useAxiosSecure()
-    console.log(item);
+    
     const { Product_id, _id, classImage, available_seats, number_of_students, className, price, user_email, } = item;
 
     const paymentInfo = {
         Product_id, paymentId: _id, classImage, className, price, user_email, date: new Date()
 
     }
-    console.log(Product_id);
+   
 
 
 
@@ -96,16 +97,20 @@ const SelectedClassesTable = ({ item, index }) => {
             <td>${item.price}</td>
             <th>
 
+
                 <div onClick={() => handelDeleteItem(_id)}>
                     <Button title={'delete'}></Button>
                 </div>
 
+
             </th>
             <th>
-                <div onClick={() => handelPaymentItem(_id)}>
-
-                    <Button title={'Pay'}></Button>
-                </div>
+                <Link to={`/dashboard/payment/${_id}`} state={{propsData: item}}>
+                    <div>
+                        
+                        <Button title={'Pay'}></Button>
+                    </div>
+                </Link>
             </th>
         </tr>
     );

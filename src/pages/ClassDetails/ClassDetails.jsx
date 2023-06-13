@@ -14,6 +14,7 @@ import { toast } from "react-hot-toast";
 
 const ClassDetails = () => {
   const classItem = useLoaderData();
+  console.log(classItem);
   const { user } = useContext(AuthContext)
   const [UserByEmail] = FindUser()
   const [axiosSecure] = useAxiosSecure()
@@ -25,6 +26,7 @@ const ClassDetails = () => {
   const bookingInfo = {
     className, classImage, instructor_email, instructor, available_seats, instructor_image, price, Product_id: _id, user_email: user?.email, user_name: user?.displayName , date: new Date(), number_of_students
   }
+  console.log('BookingInfo', bookingInfo);
 
   
   // console.log(user);

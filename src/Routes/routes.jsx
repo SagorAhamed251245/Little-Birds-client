@@ -15,7 +15,7 @@ import ClassDetails from "../pages/ClassDetails/ClassDetails";
 
 import EnrolledClasses from "../pages/Dashboard/StudentDashboard/EnrolledClasses";
 import PaymentHistory from "../pages/Dashboard/StudentDashboard/PaymentHistory";
-import SelectedClasses from "../pages/Dashboard/StudentDashboard/selectedClasses";
+
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import ManageClasses from "../pages/Dashboard/AdminDashboard/ManageClasses";
 import ManageUsers from "../pages/Dashboard/AdminDashboard/ManageUsers";
@@ -23,6 +23,9 @@ import AddClass from "../pages/Dashboard/TeacherDashboard/AddClass";
 import MyClass from "../pages/Dashboard/TeacherDashboard/MyClass";
 import EnrolledStudents from "../pages/Dashboard/TeacherDashboard/EnrolledStudents";
 import Feedback from "../pages/Dashboard/TeacherDashboard/Feedback";
+
+import SelectedClasses from "../pages/Dashboard/StudentDashboard/SelectedClasses";
+import PaymentPage from "../pages/Dashboard/StudentDashboard/PaymentPage";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -65,11 +68,19 @@ export const router = createBrowserRouter([
             <DashboardLayout></DashboardLayout>
         </PrivateRoute>,
         children: [
-            
+
             {
                 path: 'selected-class',
-                element: <SelectedClasses></SelectedClasses>
+                element: <SelectedClasses></SelectedClasses>,
+
             },
+
+            {
+                path: 'payment/:id',
+                element: <PaymentPage></PaymentPage>
+            },
+
+
             {
                 path: 'enrolled-class',
                 element: <EnrolledClasses></EnrolledClasses>
@@ -78,13 +89,14 @@ export const router = createBrowserRouter([
                 path: 'payment-history',
                 element: <PaymentHistory></PaymentHistory>
             },
+
             // student dashboard END
             // admin dashboard starting 
             {
                 path: 'manage-classes',
-                element: 
+                element:
                     <ManageClasses></ManageClasses>
-                
+
 
             },
             {
@@ -95,7 +107,7 @@ export const router = createBrowserRouter([
             // admin dashboard ending
             // teacher dashboard starting
             {
-                path:'add-class',
+                path: 'add-class',
                 element: <AddClass></AddClass>
 
 
@@ -105,7 +117,7 @@ export const router = createBrowserRouter([
                 element: <MyClass></MyClass>
             },
             {
-                path:'enrolled-history',
+                path: 'enrolled-history',
                 element: <EnrolledStudents></EnrolledStudents>
             },
             {

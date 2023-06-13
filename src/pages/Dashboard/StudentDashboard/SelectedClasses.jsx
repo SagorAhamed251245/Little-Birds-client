@@ -7,7 +7,7 @@ import SelectedClassesTable from "./SelectedClassesTable";
 
 
 
-const SelectedClasses = () => {
+const SelectedClasses = ({children}) => {
 
     const [cart] = useCart()
     console.log(cart);
@@ -16,6 +16,7 @@ const SelectedClasses = () => {
 
     return (
         <div className="overflow-x-auto w-full">
+            {children}
             <SectionTitle heading={'My Selected Classes'}></SectionTitle>
             {
                 cart.length > 0 ? <> <table className="table w-[90%] mx-auto text-center font-bold">
