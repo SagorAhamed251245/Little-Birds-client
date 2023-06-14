@@ -1,85 +1,68 @@
- [
-      {
-        "classImage": "https://ourjourneywestward.com/wp-content/uploads/2014/12/art-stencil.jpg",
-        "ClassName": "Art Fundamentals",
-        "instructor": "Instructor 1",
-        "instructor_email": "instructor1@example.com",
-        "instructor_image": "https://www.imagineartsacademy.com/uploads/images/fd0ffc75-4f0a-47f7-a7d7-2ed9490553ec.jpg",
-        "available_seats": 10,
-        "price": 50,
-        "number_of_students": 8
-      },
-      {
-        "classImage": "https://www.littledayout.com/wp-content/uploads/08-paint-art.jpg",
-        "ClassName": "Painting Techniques",
-        "instructor": "Instructor 3",
-        "instructor_email": "instructor3@example.com",
-        "instructor_image": "https://miami.imagineartsacademy.com/uploads/images/9f165d92-6c30-4fa5-b292-22650e149418.jpg",
-        "available_seats": 15,
-        "price": 60,
-        "number_of_students": 12
-      },
-      {
-        "classImage": "https://walrus-assets.s3.amazonaws.com/img/McGill_YouthMentalHealth_735.jpg",
-        "ClassName": "Digital Art and Design",
-        "instructor": "Instructor 3",
-        "instructor_email": "instructor3@example.com",
-        "instructor_image": "https://cdn.create.vista.com/api/media/medium/193059982/stock-photo-teacher-pupil-hugging-workshop-art?token=",
-        "available_seats": 8,
-        "price": 45,
-        "number_of_students": 5
-      },
-      {
-        "classImage": "https://walrus-assets.s3.amazonaws.com/img/McGill_YouthMentalHealth_735.jpg",
-        "ClassName": "Digital Art and Design",
-        "instructor": "Instructor 2",
-        "instructor_email": "instructor2@example.com",
-        "instructor_image": "https://cdn.create.vista.com/api/media/medium/193059982/stock-photo-teacher-pupil-hugging-workshop-art?token=",
-        "available_seats": 8,
-        "price": 45,
-        "number_of_students": 5
-      }
-      ,
-      {
-        "classImage": "https://walrus-assets.s3.amazonaws.com/img/McGill_YouthMentalHealth_735.jpg",
-        "ClassName": "Digital Art and Design",
-        "instructor": "Instructor 2",
-        "instructor_email": "instructor2@example.com",
-        "instructor_image": "https://cdn.create.vista.com/api/media/medium/193059982/stock-photo-teacher-pupil-hugging-workshop-art?token=",
-        "available_seats": 8,
-        "price": 45,
-        "number_of_students": 5
-      },
-      {
-        "classImage": "https://walrus-assets.s3.amazonaws.com/img/McGill_YouthMentalHealth_735.jpg",
-        "ClassName": "Digital Art and Design",
-        "instructor": "Instructor 4",
-        "instructor_email": "instructor4@example.com",
-        "instructor_image": "https://cdn.create.vista.com/api/media/medium/193059982/stock-photo-teacher-pupil-hugging-workshop-art?token=",
-        "available_seats": 8,
-        "price": 45,
-        "number_of_students": 5
-      },
-      {
-        "classImage": "https://walrus-assets.s3.amazonaws.com/img/McGill_YouthMentalHealth_735.jpg",
-        "ClassName": "Digital Art and Design",
-        "instructor": "Instructor 5",
-        "instructor_email": "instructor5@example.com",
-        "instructor_image": "https://cdn.create.vista.com/api/media/medium/193059982/stock-photo-teacher-pupil-hugging-workshop-art?token=",
-        "available_seats": 8,
-        "price": 45,
-        "number_of_students": 5
-      },
-      {
-        "classImage": "https://walrus-assets.s3.amazonaws.com/img/McGill_YouthMentalHealth_735.jpg",
-        "ClassName": "Digital Art and Design",
-        "instructor": "Instructor 6",
-        "instructor_email": "instructor6@example.com",
-        "instructor_image": "https://cdn.create.vista.com/api/media/medium/193059982/stock-photo-teacher-pupil-hugging-workshop-art?token=",
-        "available_seats": 8,
-        "price": 45,
-        "number_of_students": 5
-      }
-    ]
+[{
+  "classImage": "https://walrus-assets.s3.amazonaws.com/img/McGill_YouthMentalHealth_735.jpg",
+  "ClassName": "Digital Art and Design",
+  "instructor": "Instructor 6",
+  "instructor_email": "instructor6@example.com",
+  "instructor_image": "https://cdn.create.vista.com/api/media/medium/193059982/stock-photo-teacher-pupil-hugging-workshop-art?token=",
+  "available_seats": 8,
+  "price": 45,
+  "number_of_students": 5
+},
+{
+  "classImage": "https://example.com/image2.jpg",
+  "ClassName": "Oil Painting",
+  "instructor": "Instructor 6",
+  "instructor_email": "instructor6@example.com",
+  "instructor_image": "https://cdn.create.vista.com/api/media/medium/193059982/stock-photo-teacher-pupil-hugging-workshop-art?token=",
+  "available_seats": 12,
+  "price": 60,
+  "number_of_students": 8
+},
 
+  {
+    "classImage": "https://example.com/image4.jpg",
+    "ClassName": "Watercolor Painting",
+    "instructor": "Instructor 6",
+    "instructor_email": "instructor6@example.com",
+    "instructor_image": "https://cdn.create.vista.com/api/media/medium/193059982/stock-photo-teacher-pupil-hugging-workshop-art?token=",
+    "available_seats": 15,
+    "price": 55,
+    "number_of_students": 7
+  },
   
+    {
+      "classImage": "https://example.com/image5.jpg",
+      "ClassName": "Mixed Media Art",
+      "instructor": "Instructor 7",
+      "instructor_email": "instructor6@example.com",
+      "instructor_image": "https://cdn.create.vista.com/api/media/medium/193059982/stock-photo-teacher-pupil-hugging-workshop-art?token=",
+      "available_seats": 10,
+      "price": 50,
+      "number_of_students": 6
+    },
+    {
+      "classImage": "https://example.com/image6.jpg",
+      "ClassName": "Acrylic Painting",
+      "instructor": "Instructor 7",
+      "instructor_email": "instructor7@example.com",
+      "instructor_image": "https://cdn.create.vista.com/api/media/medium/193059982/stock-photo-teacher-pupil-hugging-workshop-art?token=",
+      "available_seats": 12,
+      "price": 60,
+      "number_of_students": 8
+    },
+    
+      {
+        "classImage": "https://example.com/image7.jpg",
+        "ClassName": "Pottery Making",
+        "instructor": "Instructor 9",
+        "instructor_email": "instructor9@example.com",
+        "instructor_image": "https://cdn.create.vista.com/api/media/medium/193059982/stock-photo-teacher-pupil-hugging-workshop-art?token=",
+        "available_seats": 10,
+        "price": 55,
+        "number_of_students": 7
+      }
+    
+    
+  
+
+]
