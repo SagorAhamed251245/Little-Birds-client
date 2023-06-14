@@ -12,8 +12,8 @@
       {
         "classImage": "https://www.littledayout.com/wp-content/uploads/08-paint-art.jpg",
         "ClassName": "Painting Techniques",
-        "instructor": "Instructor 2",
-        "instructor_email": "instructor2@example.com",
+        "instructor": "Instructor 3",
+        "instructor_email": "instructor3@example.com",
         "instructor_image": "https://miami.imagineartsacademy.com/uploads/images/9f165d92-6c30-4fa5-b292-22650e149418.jpg",
         "available_seats": 15,
         "price": 60,
@@ -24,6 +24,57 @@
         "ClassName": "Digital Art and Design",
         "instructor": "Instructor 3",
         "instructor_email": "instructor3@example.com",
+        "instructor_image": "https://cdn.create.vista.com/api/media/medium/193059982/stock-photo-teacher-pupil-hugging-workshop-art?token=",
+        "available_seats": 8,
+        "price": 45,
+        "number_of_students": 5
+      },
+      {
+        "classImage": "https://walrus-assets.s3.amazonaws.com/img/McGill_YouthMentalHealth_735.jpg",
+        "ClassName": "Digital Art and Design",
+        "instructor": "Instructor 2",
+        "instructor_email": "instructor2@example.com",
+        "instructor_image": "https://cdn.create.vista.com/api/media/medium/193059982/stock-photo-teacher-pupil-hugging-workshop-art?token=",
+        "available_seats": 8,
+        "price": 45,
+        "number_of_students": 5
+      }
+      ,
+      {
+        "classImage": "https://walrus-assets.s3.amazonaws.com/img/McGill_YouthMentalHealth_735.jpg",
+        "ClassName": "Digital Art and Design",
+        "instructor": "Instructor 2",
+        "instructor_email": "instructor2@example.com",
+        "instructor_image": "https://cdn.create.vista.com/api/media/medium/193059982/stock-photo-teacher-pupil-hugging-workshop-art?token=",
+        "available_seats": 8,
+        "price": 45,
+        "number_of_students": 5
+      },
+      {
+        "classImage": "https://walrus-assets.s3.amazonaws.com/img/McGill_YouthMentalHealth_735.jpg",
+        "ClassName": "Digital Art and Design",
+        "instructor": "Instructor 4",
+        "instructor_email": "instructor4@example.com",
+        "instructor_image": "https://cdn.create.vista.com/api/media/medium/193059982/stock-photo-teacher-pupil-hugging-workshop-art?token=",
+        "available_seats": 8,
+        "price": 45,
+        "number_of_students": 5
+      },
+      {
+        "classImage": "https://walrus-assets.s3.amazonaws.com/img/McGill_YouthMentalHealth_735.jpg",
+        "ClassName": "Digital Art and Design",
+        "instructor": "Instructor 5",
+        "instructor_email": "instructor5@example.com",
+        "instructor_image": "https://cdn.create.vista.com/api/media/medium/193059982/stock-photo-teacher-pupil-hugging-workshop-art?token=",
+        "available_seats": 8,
+        "price": 45,
+        "number_of_students": 5
+      },
+      {
+        "classImage": "https://walrus-assets.s3.amazonaws.com/img/McGill_YouthMentalHealth_735.jpg",
+        "ClassName": "Digital Art and Design",
+        "instructor": "Instructor 6",
+        "instructor_email": "instructor6@example.com",
         "instructor_image": "https://cdn.create.vista.com/api/media/medium/193059982/stock-photo-teacher-pupil-hugging-workshop-art?token=",
         "available_seats": 8,
         "price": 45,

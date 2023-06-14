@@ -1,16 +1,21 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import Button from "../../component/Button/Button";
+import { FaEye } from 'react-icons/fa';
+
+
 
 import { setNewUser } from "../../api/setUserAuth";
 
 const Login = () => {
+    const [hidden, setHidden] = useState(true)
+const [error, setError] = useState('')
     const { register, handleSubmit } = useForm();
     const navigate = useNavigate()
 
-    const { singInUser , singinWithGoogle} = useContext(AuthContext)
+    const { singInUser, singinWithGoogle } = useContext(AuthContext)
 
     // singUP user
     const onSubmit = data => {
@@ -23,7 +28,7 @@ const Login = () => {
                 navigate('/')
             })
             .catch(error => {
-                console.log(error.message);
+                setError(error.message);
             })
 
 
@@ -55,10 +60,12 @@ const Login = () => {
                         </div>
                         <div>
                             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
-                            <input type="password" {...register("password")}
+                            <input type={hidden ? 'password' : 'text'} {...register("password")}
                                 autoComplete="on"
 
                                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-pink-500 focus:border-pink-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
+                            <FaEye onClick={() => setHidden(!hidden)}></FaEye>
+
                         </div>
 
                         <Button title={'Login'}></Button>
@@ -71,7 +78,9 @@ const Login = () => {
                     <div className=' mb-1 w-10/12 mx-auto'>
                         <button onClick={handelGoogleSingin} className="w-full text-white bg-sky-700 hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-sky-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:ring-sky-800">
                             SingUp With Google</button>
+
                     </div>
+                    <p className="text-red-500 text-sm">{error}</p>
                 </div>
             </div>
         </>
