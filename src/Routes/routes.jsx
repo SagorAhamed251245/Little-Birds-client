@@ -27,7 +27,6 @@ import DashboardHome from "../pages/Dashboard/DashboardHome";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import AdminRoute from "./AdminRoutes/AdminRoutes";
 import TeacherRoutes from "./TeacherRoutes/TeacherRoutes";
-import Teacher from "../api/teacher";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -109,18 +108,20 @@ export const router = createBrowserRouter([
             // admin dashboard starting 
             {
                 path: 'manage-classes',
-                element:<AdminRoute>
+                element:
                     <ManageClasses></ManageClasses>
-                </AdminRoute>
+                
                     
 
 
             },
             {
                 path: 'manage-users',
-                element: <AdminRoute>
+                element: 
                     <ManageUsers></ManageUsers>
-                </AdminRoute>
+              
+                    
+                
 
             },
             // admin dashboard ending

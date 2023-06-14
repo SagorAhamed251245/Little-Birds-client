@@ -1,10 +1,11 @@
-
 import { useContext } from "react";
-
-import { Navigate } from "react-router";
 import { AuthContext } from "../../provider/AuthProvider";
-import LoadingPage from "../../pages/LoadingPage/LoadingPage";
 import FindUser from "../../api/FindUers";
+import LoadingPage from "../../pages/LoadingPage/LoadingPage";
+import { Navigate } from "react-router-dom";
+
+
+
 
 
 
