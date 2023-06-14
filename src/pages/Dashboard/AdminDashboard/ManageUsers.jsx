@@ -7,7 +7,7 @@ const ManageUsers = () => {
     const [allUsers, refetch] = AllUser()
     return (
         <div className="overflow-x-auto w-full">
-            <SectionTitle heading={'Pandding  Classes'}></SectionTitle>
+            <SectionTitle heading={'Manage User'}></SectionTitle>
             {
                 allUsers.length > 0 ? <> <table className="table w-[90%] mx-auto text-center font-bold">
                     {/* head */}
