@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import Button from '../../component/Button/Button';
 import { setNewUser } from '../../api/setUserAuth';
@@ -9,6 +9,7 @@ import {  FaEye } from 'react-icons/fa';
 const Register = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const navigate = useNavigate();
+    const location = useLocation();
     const [hidden, setHidden] = useState(true)
     const [confirmPassHidden, setConfirmPassHidden] = useState(true)
 
@@ -22,7 +23,7 @@ const Register = () => {
                     console.log(result.user);
                     setUserProfile(name, photo);
                     setNewUser(result.user);
-                    navigate('/');
+                    { location.state?.from?.pathname ? navigate(location.state.from.pathname) : navigate('/') }
                 })
                 .catch(error => {
                     console.log(error.message);
@@ -35,8 +36,8 @@ const Register = () => {
             .then(result => {
                 setNewUser(result.user);
 
-               /*  { location.state?.from?.pathname ? navigate(location.state.from.pathname) : navigate('/') } */
-               navigate('/')
+                { location.state?.from?.pathname ? navigate(location.state.from.pathname) : navigate('/') }
+              
             })
             .catch(error => {
                 console.log(error.message)

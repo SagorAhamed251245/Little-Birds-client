@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import Button from "../../component/Button/Button";
 import { FaEye } from 'react-icons/fa';
@@ -13,6 +13,7 @@ const Login = () => {
     const [hidden, setHidden] = useState(true)
 const [error, setError] = useState('')
     const { register, handleSubmit } = useForm();
+    const location = useLocation()
     const navigate = useNavigate()
 
     const { singInUser, singinWithGoogle } = useContext(AuthContext)
@@ -38,8 +39,8 @@ const [error, setError] = useState('')
             .then(result => {
                 setNewUser(result.user);
 
-                /*  { location.state?.from?.pathname ? navigate(location.state.from.pathname) : navigate('/') } */
-                navigate('/')
+                 { location.state?.from?.pathname ? navigate(location.state.from.pathname) : navigate('/') }
+                
             })
             .catch(error => {
                 console.log(error.message)
@@ -71,7 +72,7 @@ const [error, setError] = useState('')
                         <Button title={'Login'}></Button>
 
                         <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
-                            Create a new account <Link to='/register' className="text-pink-500 hover:underline dark:text-pink-500">register</Link>
+                            Create a new account <Link state={location} to='/register' className="text-pink-500 hover:underline dark:text-pink-500">register</Link>
                         </div>
 
                     </form>
