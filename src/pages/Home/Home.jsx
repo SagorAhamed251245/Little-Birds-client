@@ -2,6 +2,7 @@
 // import { AuthContext } from "../../provider/AuthProvider";
 
 import { Banner } from "./Banner/Banner";
+import OurServices from "./OurServices/OurServices";
 import PopularClasses from "./PopularClasses/PopularClasses";
 import PopularInstructor from "./PopularInstructor/PopularInstructor";
 
@@ -18,6 +19,9 @@ const Home = () => {
             </div>
             <div>
                 <PopularClasses></PopularClasses>
+            </div>
+            <div>
+                <OurServices></OurServices>
             </div>
 
         </div>

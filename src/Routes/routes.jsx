@@ -24,10 +24,12 @@ import MyClass from "../pages/Dashboard/TeacherDashboard/MyClass";
 import SelectedClasses from "../pages/Dashboard/StudentDashboard/SelectedClasses";
 import PaymentPage from "../pages/Dashboard/StudentDashboard/PaymentPage";
 import DashboardHome from "../pages/Dashboard/DashboardHome";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 export const router = createBrowserRouter([
     {
         path: "/",
         element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: "/",
