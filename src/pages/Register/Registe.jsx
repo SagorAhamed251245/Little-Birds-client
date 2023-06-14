@@ -21,8 +21,15 @@ const Register = () => {
             createUser(email, password)
                 .then(result => {
                     console.log(result.user);
-                    setUserProfile(name, photo);
-                    setNewUser(result.user);
+                    setUserProfile(name, photo)
+                    const userInfo = {
+                        displayName: name,
+                        email: result.user.email,
+                        photoURL: photo,
+
+                    }
+                    
+                    setNewUser(userInfo);
                     { location.state?.from?.pathname ? navigate(location.state.from.pathname) : navigate('/') }
                 })
                 .catch(error => {
@@ -106,7 +113,7 @@ const Register = () => {
                         <div>
                             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm password</label>
                             <input
-                                type={hidden ? 'password' : 'text'}
+                                type={confirmPassHidden ? 'password' : 'text'}
                                 {...register('confirm_password', {
                                     required: 'Please confirm your password',
                                     validate: value => value === watch('password') || 'Passwords do not match',

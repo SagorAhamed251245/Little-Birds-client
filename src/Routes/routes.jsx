@@ -26,6 +26,7 @@ import Feedback from "../pages/Dashboard/TeacherDashboard/Feedback";
 
 import SelectedClasses from "../pages/Dashboard/StudentDashboard/SelectedClasses";
 import PaymentPage from "../pages/Dashboard/StudentDashboard/PaymentPage";
+import DashboardHome from "../pages/Dashboard/DashboardHome";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -68,6 +69,10 @@ export const router = createBrowserRouter([
             <DashboardLayout></DashboardLayout>
         </PrivateRoute>,
         children: [
+            {
+                path: 'dashboard',
+                element: <DashboardHome></DashboardHome>
+            },
 
             {
                 path: 'selected-class',
