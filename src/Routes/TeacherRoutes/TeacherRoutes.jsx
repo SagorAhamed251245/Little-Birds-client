@@ -1,14 +1,11 @@
-
 import { useContext } from "react";
-
-import { Navigate } from "react-router";
-import { AuthContext } from "../../provider/AuthProvider";
 import LoadingPage from "../../pages/LoadingPage/LoadingPage";
 import FindUser from "../../api/FindUers";
+import { Navigate } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 
-
-const AdminRoute = ({ children }) => {
+const TeacherRoutes = ({children}) => {
     const {  loading } = useContext(AuthContext);
     const [UserByEmail]= FindUser()
     console.log(UserByEmail);
@@ -18,10 +15,10 @@ const AdminRoute = ({ children }) => {
         return <LoadingPage></LoadingPage>
     }
 
-    if (UserByEmail.role === 'admin') {
+    if (UserByEmail.role === 'teacher') {
         return children;
     }
     return <Navigate to="/"  replace></Navigate>
 };
 
-export default AdminRoute;
+export default TeacherRoutes;

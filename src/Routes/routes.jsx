@@ -25,6 +25,9 @@ import SelectedClasses from "../pages/Dashboard/StudentDashboard/SelectedClasses
 import PaymentPage from "../pages/Dashboard/StudentDashboard/PaymentPage";
 import DashboardHome from "../pages/Dashboard/DashboardHome";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import AdminRoute from "./AdminRoutes/AdminRoutes";
+import TeacherRoutes from "./TeacherRoutes/TeacherRoutes";
+import Teacher from "../api/teacher";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -75,37 +78,49 @@ export const router = createBrowserRouter([
 
             {
                 path: 'selected-class',
-                element: <SelectedClasses></SelectedClasses>,
+                element: <TeacherRoutes>
+                    <SelectedClasses></SelectedClasses>
+                </TeacherRoutes>,
 
             },
 
             {
                 path: 'payment/:id',
-                element: <PaymentPage></PaymentPage>
+                element: <TeacherRoutes>
+                    <PaymentPage></PaymentPage>
+                </TeacherRoutes>
             },
 
 
             {
                 path: 'enrolled-class',
-                element: <EnrolledClasses></EnrolledClasses>
+                element: <TeacherRoutes>
+                    <EnrolledClasses></EnrolledClasses>
+                </TeacherRoutes>
             },
             {
                 path: 'payment-history',
-                element: <PaymentHistory></PaymentHistory>
+                element: <TeacherRoutes>
+                    <PaymentHistory></PaymentHistory>
+                </TeacherRoutes>
             },
 
             // student dashboard END
             // admin dashboard starting 
             {
                 path: 'manage-classes',
-                element:
+                element:<AdminRoute>
                     <ManageClasses></ManageClasses>
+                </AdminRoute>
+                    
 
 
             },
             {
                 path: 'manage-users',
-                element: <ManageUsers></ManageUsers>
+                element: <AdminRoute>
+                    <ManageUsers></ManageUsers>
+                </AdminRoute>
 
             },
             // admin dashboard ending
