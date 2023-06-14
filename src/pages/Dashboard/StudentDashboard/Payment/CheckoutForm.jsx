@@ -19,7 +19,7 @@ const CheckoutForm = ({ item }) => {
     const { Product_id, _id, classImage, available_seats, number_of_students, className, price, user_email, } = item;
 
     const paymentInfo = {
-        Product_id, paymentId: _id, classImage, className, price, user_email, date: new Date()
+        Product_id, paymentId: _id, classImage, className,  price, user_email, date: new Date()
 
     }
 
@@ -41,8 +41,7 @@ const CheckoutForm = ({ item }) => {
 
 
         if (!stripe || !elements) {
-            // Stripe.js has not loaded yet. Make sure to disable
-            // form submission until Stripe.js has loaded.
+           
             return;
         }
         event.preventDefault();
@@ -85,7 +84,8 @@ const CheckoutForm = ({ item }) => {
 
         if (paymentIntent.status === 'succeeded') {
             setTransactionId(paymentIntent.id);
-            const payment = {...paymentInfo, transactionId: transactionId }
+            console.log(paymentIntent.id);
+            const payment = {...paymentInfo, transactionId: paymentIntent.id }
             axiosSecure.post('/payments', payment)
                 .then(res => {
                     console.log(res);

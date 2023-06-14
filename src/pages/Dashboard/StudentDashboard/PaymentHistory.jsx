@@ -26,6 +26,7 @@ const PaymentHistory = ({title, subTitle}) => {
                         <th>Name</th>
                         <th>Date</th>
                         <th>Price</th>
+                        <th>transactionId</th>
                         
                     </tr>
                 </thead>
@@ -52,6 +53,7 @@ const PaymentHistory = ({title, subTitle}) => {
                                 
                                 <td>{formatDate(item?.date)}</td>
                                 <td>${item.price}</td>
+                                <td>{item.transactionId}</td>
                                 
                                 
                             </tr>
