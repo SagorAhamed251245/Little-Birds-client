@@ -31,7 +31,7 @@ const Navbar = () => {
                 </div>
                 <img className="w-10" src={ logo1} alt="" />
                 <p className="normal-case text-2xl ml-2 font-bold mr-2">Little Birds</p>
-                <p>{user?.displayName}</p>
+               
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

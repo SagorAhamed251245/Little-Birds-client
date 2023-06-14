@@ -77,31 +77,31 @@ export const router = createBrowserRouter([
 
             {
                 path: 'selected-class',
-                element: <TeacherRoutes>
+                element: 
                     <SelectedClasses></SelectedClasses>
-                </TeacherRoutes>,
+                
 
             },
 
             {
                 path: 'payment/:id',
-                element: <TeacherRoutes>
+                element: 
                     <PaymentPage></PaymentPage>
-                </TeacherRoutes>
+                
             },
 
 
             {
                 path: 'enrolled-class',
-                element: <TeacherRoutes>
+                element:
                     <EnrolledClasses></EnrolledClasses>
-                </TeacherRoutes>
+               
             },
             {
                 path: 'payment-history',
-                element: <TeacherRoutes>
+                element: 
                     <PaymentHistory></PaymentHistory>
-                </TeacherRoutes>
+               
             },
 
             // student dashboard END
