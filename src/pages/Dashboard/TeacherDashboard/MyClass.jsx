@@ -14,13 +14,13 @@ const MyClass = () => {
 
   useEffect(() => {
     const approvedClasses = findClassByEmail.filter(
-      (item) => item?.Status === "approved"
+      (item) => item?.status === "approved"
     );
-  
+
     const deniedClasses = myAllClass.filter(
-      (item) => item?.Status !== "approved"
+      (item) => item?.status !== "approved"
     );
-  
+
     const allClasses = [...approvedClasses, ...deniedClasses];
     setAllMyClass(allClasses);
   }, [findClassByEmail, myAllClass]);

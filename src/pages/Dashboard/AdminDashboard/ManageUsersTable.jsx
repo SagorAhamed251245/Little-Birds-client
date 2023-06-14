@@ -27,7 +27,7 @@ const ManageUsersTable = ({ item, index, refetch }) => {
         axiosSecure.patch(`/UpdateUsers/${item.email}`, { role: 'teacher' })
             .then((response) => {
                 console.log(response);
-                toast.success(`User is now ${'admin'} `)
+                toast.success(`User is now ${'Instructor'} `)
                 refetch();
             })
             .catch((error) => {

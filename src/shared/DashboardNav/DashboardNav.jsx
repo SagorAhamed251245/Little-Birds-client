@@ -2,6 +2,8 @@
 
 import { Link } from "react-router-dom";
 import FindUser from "../../api/FindUers";
+import { FaHome , FaBuromobelexperte, FaUserCog, FaArchive, FaBorderAll, FaBookOpen, FaCcAmazonPay} from 'react-icons/fa';
+import {AiOutlineAppstoreAdd, AiOutlineHome} from 'react-icons/ai';
 
 
 const DashboardNav = () => {
@@ -13,18 +15,18 @@ const DashboardNav = () => {
         li = (
           <>
             
-            <Link to={'dashboard'}>Dashboard Home</Link>
-            <Link to={'manage-classes'}>Manage Classes</Link>
-            <Link to={'manage-users'}>Manage Users</Link>
+            <Link to={'dashboard'} ><FaHome className="text-2xl"></FaHome></Link>
+            <Link to={'manage-classes'}><FaBuromobelexperte className="text-2xl"></FaBuromobelexperte></Link>
+            <Link to={'manage-users'}><FaUserCog className="text-2xl"></FaUserCog></Link>
           </>
         );
       } else if (UserByEmail && UserByEmail.role === 'teacher') {
         console.log("role: teacher");
         li = (
           <>
-            <Link to={'dashboard'}>Dashboard Home</Link>
-            <Link to={'add-class'}>Add a Class</Link>
-            <Link to={'my-class'}>My Classes</Link>
+            <Link to={'dashboard'}><FaHome className="text-2xl"></FaHome></Link>
+            <Link to={'add-class'}><AiOutlineAppstoreAdd className="text-2xl"></AiOutlineAppstoreAdd></Link>
+            <Link to={'my-class'}><FaArchive className="text-2xl"></FaArchive></Link>
             
           </>
         );
@@ -32,10 +34,10 @@ const DashboardNav = () => {
         console.log("role: student");
         li = (
           <>
-            <Link to={'dashboard'}>Dashboard Home</Link>
-            <Link to={'selected-class'}>Selected Class</Link>
-            <Link to={'enrolled-class'}>Enrolled-class</Link>
-            <Link to={'payment-history'}>Payment-history</Link>
+            <Link to={'dashboard'}><FaHome className="text-2xl"></FaHome></Link>
+            <Link to={'selected-class'}><FaBorderAll className="text-2xl"></FaBorderAll></Link>
+            <Link to={'enrolled-class'}><FaBookOpen className="text-2xl"></FaBookOpen></Link>
+            <Link to={'payment-history'}><FaCcAmazonPay className="text-2xl"></FaCcAmazonPay></Link>
           </>
         );
 
@@ -58,7 +60,7 @@ const DashboardNav = () => {
                     {li}
 
                     <div className="divider mt-60">OR</div>
-                    <Link to={'/'}>Home</Link>
+                    <Link to={'/'}><AiOutlineHome className="text-2xl"></AiOutlineHome></Link>
                 </ul>
 
 

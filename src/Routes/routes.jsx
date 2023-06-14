@@ -21,9 +21,6 @@ import ManageClasses from "../pages/Dashboard/AdminDashboard/ManageClasses";
 import ManageUsers from "../pages/Dashboard/AdminDashboard/ManageUsers";
 import AddClass from "../pages/Dashboard/TeacherDashboard/AddClass";
 import MyClass from "../pages/Dashboard/TeacherDashboard/MyClass";
-import EnrolledStudents from "../pages/Dashboard/TeacherDashboard/EnrolledStudents";
-import Feedback from "../pages/Dashboard/TeacherDashboard/Feedback";
-
 import SelectedClasses from "../pages/Dashboard/StudentDashboard/SelectedClasses";
 import PaymentPage from "../pages/Dashboard/StudentDashboard/PaymentPage";
 import DashboardHome from "../pages/Dashboard/DashboardHome";
@@ -121,14 +118,8 @@ export const router = createBrowserRouter([
                 path: 'my-class',
                 element: <MyClass></MyClass>
             },
-            {
-                path: 'enrolled-history',
-                element: <EnrolledStudents></EnrolledStudents>
-            },
-            {
-                path: 'feedback-status',
-                element: <Feedback></Feedback>
-            }
+            
+            
             // teacher dashboard end
 
         ]
