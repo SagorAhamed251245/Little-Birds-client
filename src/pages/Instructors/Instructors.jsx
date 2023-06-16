@@ -5,7 +5,7 @@ const Instructors = () => {
     const [teachers] = Teacher()
     return (
         <Container>
-            <div className="flex  justify-between mt-16">
+            <div className="grid grid-cols-3 gap-8  mt-16">
                 {teachers.map(teacher => <>
                     <div key={teacher._id}>
 
