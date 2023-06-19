@@ -68,12 +68,12 @@ const DashboardNav = () => {
   }
 
   return (
-    <div className="  flex flex-col w-full m-0 p-0 items-center justify-between">
-      <ul className="menu min-h-screen justify-between  text-base-content  items-center bg-pink-200 ">
+    <div className="  flex flex-col w-full m-0 p-0 items-center justify-between  h-auto ">
+      <ul className="menu min-h-screen justify-between  text-base-200  items-center  ">
         
         {li}
 
-        <div className="divider mt-60">OR</div>
+        <div className="divider mt-60 text-base-200">OR</div>
         <Link to={"/"}>
           <AiOutlineHome className="text-2xl"></AiOutlineHome>
         </Link>
